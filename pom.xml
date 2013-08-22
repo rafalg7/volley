@@ -32,7 +32,6 @@
 
   <build>
     <sourceDirectory>src</sourceDirectory>    
-    <pluginManagement>
       <plugins>
         <plugin>
           <groupId>com.jayway.maven.plugins.android.generation2</groupId>
@@ -44,7 +43,6 @@
             </sdk>
           </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -53,8 +51,19 @@
             <source>${java.version}</source>
             <target>${java.version}</target>
           </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+        </plugin>	
+	    <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-source-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>attach-sources</id>
+					<goals>
+						<goal>jar</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>	
+      </plugins>    
   </build>
 </project>
